@@ -1,0 +1,79 @@
+<html>
+  <head>
+    <title>Aula 07-07-2020</title>
+    <!-- Aqui são carregados os "scripts", fonts e CSS de teceiros -->
+  </head>
+  <body>
+    <script>
+      /*
+      Nome do jogador
+      Numero de fases
+        5 fases
+          Boss Final na 5ª fase
+      Quantidade de Vida
+        Jogador e monstros
+      Qual a arma escolhida
+        Lista de armas
+          Qual o dano
+      Força dos monstros
+        Qual o dano
+      Recompensas a cada Fase
+        Armas melhores
+          Lista de armas
+            Qual o dano
+        Mais quantidade de Vida
+      */
+
+      alert('BEM VINDO AO NOSSO JOGO DE DERROTAR MONSTRINHOS');
+      var nomeJogador = prompt('Qual o nome do seu Personagem?');
+      var numeroFase = 1
+      var vidaTotal = 10
+      var armaEscolhida = parseInt(prompt('Qual arma voce irá escolher? Digite o número correspondente. \n1 - Espada de Duas mãos \n2 - Machado \n3 - Espada e escudo'));
+      var defesa = 0
+      
+      if (armaEscolhida == 1) {
+        armaEscolhida = 3
+      } else if (armaEscolhida == 2) {
+        armaEscolhida = 4
+      } else  if (armaEscolhida == 3){
+        armaEscolhida = 2
+        defesa = 1
+      } else {
+        alert('Você não escolheu uma arma, o jogo será reiniciado.'); 
+      }
+      
+      alert(`${nomeJogador} está preparado para o combate. Você começará com um total de ${vidaTotal} Pontos de Vida.`);
+
+      while (numeroFase < 6) {
+        criaturaVida = numeroFase*2;
+        criaturaForca = numeroFase*2;
+        criaturaForca = criaturaForca - 1;
+        if (numeroFase == 5) {
+
+        } else {
+            alert(`PRÓXIMA FASE: ${numeroFase}`);
+            alert(`Você irá enfrentar uma criatura terrível, esteja preparado.`);
+            alert(`${nomeJogador} \nPontos de Vida: ${vidaTotal} \nDano da Arma: ${armaEscolhida}`);
+            alert(`Monstro \nPontos de Vida: ${criaturaVida} \nForça: ${criaturaForca}`);
+
+            do {
+              criaturaVida = criaturaVida - armaEscolhida;
+              if (criaturaVida > 0 ){ 
+              vidaTotal = vidaTotal - criaturaForca;
+              }
+            } while( criaturaVida >= 0);
+
+            if (vidaTotal == 0 || vidaTotal < 0) {
+              alert('Você morreu! Recomeçe o jogo!');
+
+            } else {
+              alert('Parabéns jovem aventureiro, voce derrotou o monstro!');
+              vidaTotal = 10;
+            }
+          };
+        numeroFase++
+      };
+
+    </script>  
+  </body>
+</html>

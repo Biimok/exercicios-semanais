@@ -1,0 +1,22 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+</head>
+<body>
+  <script>
+    var letra = prompt("Escolha a letra").toLowerCase();
+    var txt = prompt("Digite a frase:").toLowerCase();
+
+    function myFunction(letra, txt) {
+      var res = txt.split(letra);
+      var resTamanho = res.length - 1;
+      return document.write(`A letra "${letra}" escolhida, aparece ${resTamanho} vezes na frase;`);
+    };
+    
+    myFunction(letra, txt);
+  </script>
+</body>
+</html>
